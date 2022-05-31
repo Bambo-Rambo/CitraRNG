@@ -550,7 +550,7 @@ class Ui_MainWindow(object):
         self.lineEditSOSInitialSeed = QLineEdit(self.groupBoxSOS)
         self.lineEditSOSInitialSeed.setObjectName(u"lineEditSOSInitialSeed")
         self.lineEditSOSInitialSeed.setMaxLength(8)
-        self.lineEditSOSInitialSeed.setReadOnly(True)
+        self.lineEditSOSInitialSeed.setReadOnly(False)
 
         self.gridLayout_5.addWidget(self.lineEditSOSInitialSeed, 1, 1, 1, 1)
 
