@@ -115,8 +115,12 @@ class Manager7:
 
         return Pokemon(data)
 
-    def readSOSInitialSeed(self):
-        self.sosInitialSeed = readDWord(self.citra, self.sosSeedAddress)
+    def readSOSInitialSeed(self, ActualSOSSeed, checkSeed):
+        if (checkSeed == True):
+            self.sosInitialSeed = readDWord(self.citra, self.sosSeedAddress)
+        else:
+            self.sosInitialSeed = ActualSOSSeed
+
         self.sosSFMT = SFMT(self.sosInitialSeed)
         self.sosCurrentSeed = self.sosInitialSeed
         self.sosFrameCount = -1
@@ -136,7 +140,7 @@ class Manager7:
             count += 1
 
             # Probably stuck in an infinite loop
-            if count > 100000:
+            if count > 20000:
                 return None            
             
         self.sosFrameCount += count
