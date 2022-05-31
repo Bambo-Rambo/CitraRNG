@@ -1,6 +1,6 @@
 import threading
 import time
-from PySide6.QtCore import QSettings, Signal, Slot
+from PySide6.QtCore import QObject, QSettings, Signal, Slot
 from PySide6.QtWidgets import QMainWindow, QMessageBox
 from ui_MainWindow import Ui_MainWindow
 from manager_oras import ManagerORAS
@@ -8,6 +8,7 @@ from manager_sm import ManagerSM
 from manager_usum import ManagerUSUM
 from manager_xy import ManagerXY
 from util import hexify
+from util import uint
 
 class MainWindow(QMainWindow, Ui_MainWindow):
     update = Signal()
@@ -129,7 +130,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self.labelStatus.setText("Disconnected")
             self.comboBoxGameSelection.setEnabled(True)      
 
-    def toggleEnable(self, flag: bool, index: int):
+    def toggleEnable(self, flag, index):
         self.doubleSpinBoxDelay.setEnabled(flag)
 
         if index == 0 or index == 1:
@@ -269,9 +270,16 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     @Slot()
     def updateSOSRNG(self):
         if self.sosRNG:
-            if self.manager.sosInitialSeed is None:
-                self.manager.readSOSInitialSeed()
-            
+            #if self.manager.sosInitialSeed is None:
+            stringSeed = self.lineEditSOSInitialSeed.text()
+            if stringSeed.__eq__(""):
+                findSeed = True
+                ActualSosSeed = 0
+            else:
+                findSeed = False
+                ActualSosSeed = int(stringSeed, 16)
+            self.manager.readSOSInitialSeed(ActualSosSeed, findSeed)
+
             values = self.manager.updateSOSFrameCount()
 
             # Handle infinite loop
@@ -284,7 +292,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
                 return
             
             difference, initialSeed, currentSeed, frameCount, chainCount = values
-
             # Check to see if frame changed at all
             if difference != 0:
                 self.lineEditSOSInitialSeed.setText(hexify(initialSeed))
