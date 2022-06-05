@@ -566,17 +566,17 @@ class Ui_MainWindow(object):
 
         self.gridLayout_5.addWidget(self.lineEditSOSCurrentSeed, 2, 1, 1, 1)
 
-        self.labelSOSFrame = QLabel(self.groupBoxSOS)
-        self.labelSOSFrame.setObjectName(u"labelSOSFrame")
+        self.labelSOSIndex = QLabel(self.groupBoxSOS)
+        self.labelSOSIndex.setObjectName(u"labelSOSIndex")
 
-        self.gridLayout_5.addWidget(self.labelSOSFrame, 3, 0, 1, 1)
+        self.gridLayout_5.addWidget(self.labelSOSIndex, 3, 0, 1, 1)
 
-        self.lineEditSOSFrame = QLineEdit(self.groupBoxSOS)
-        self.lineEditSOSFrame.setObjectName(u"lineEditSOSFrame")
-        self.lineEditSOSFrame.setMaxLength(8)
-        self.lineEditSOSFrame.setReadOnly(True)
+        self.lineEditSOSIndex = QLineEdit(self.groupBoxSOS)
+        self.lineEditSOSIndex.setObjectName(u"lineEditSOSIndex")
+        self.lineEditSOSIndex.setMaxLength(8)
+        self.lineEditSOSIndex.setReadOnly(True)
 
-        self.gridLayout_5.addWidget(self.lineEditSOSFrame, 3, 1, 1, 1)
+        self.gridLayout_5.addWidget(self.lineEditSOSIndex, 3, 1, 1, 1)
 
         self.labelSOSChainCount = QLabel(self.groupBoxSOS)
         self.labelSOSChainCount.setObjectName(u"labelSOSChainCount")
@@ -689,7 +689,7 @@ class Ui_MainWindow(object):
         self.pushButtonSOSReset.setText(QCoreApplication.translate("MainWindow", u"Reset", None))
         self.labelSOSInitialSeed.setText(QCoreApplication.translate("MainWindow", u"Initial Seed:", None))
         self.labelSOSCurrentSeed.setText(QCoreApplication.translate("MainWindow", u"Current Seed:", None))
-        self.labelSOSFrame.setText(QCoreApplication.translate("MainWindow", u"Frame:", None))
+        self.labelSOSIndex.setText(QCoreApplication.translate("MainWindow", u"Index:", None))
         self.labelSOSChainCount.setText(QCoreApplication.translate("MainWindow", u"Chain Count:", None))
         self.tabWidgetGen7.setTabText(self.tabWidgetGen7.indexOf(self.tabSOS), QCoreApplication.translate("MainWindow", u"SOS", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tabGen7), QCoreApplication.translate("MainWindow", u"Gen 7", None))
