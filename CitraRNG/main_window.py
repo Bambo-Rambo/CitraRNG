@@ -296,7 +296,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             if difference != 0:
                 self.lineEditSOSInitialSeed.setText(hexify(initialSeed))
                 self.lineEditSOSCurrentSeed.setText(hexify(currentSeed))
-                self.lineEditSOSFrame.setText(str(frameCount))
+                self.lineEditSOSIndex.setText(str(frameCount))
                 self.lineEditSOSChainCount.setText(str(chainCount))
 
     def toggleSOSRNG(self):
