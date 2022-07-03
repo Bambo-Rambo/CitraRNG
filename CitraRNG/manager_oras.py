@@ -22,6 +22,9 @@ class ManagerORAS(Manager6):
 
         self.saveVariable = 0x8C71DB8
 
+        self.stepCounter = 0x8D3B508
+        self.chainLength = 0x8D3B57C
+
     def getWildOffset(self):
         pointer = readDWord(self.citra, 0x880313C) - 0x22C0
         if pointer < 0x8000000 or pointer > 0x8DF0000:

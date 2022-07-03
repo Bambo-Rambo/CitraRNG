@@ -171,7 +171,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
                 return
 
-            difference, initialSeed, currentSeed, frameCount, save, tiny3, tiny2, tiny1, tiny0 = values
+            difference, initialSeed, currentSeed, frameCount, save, step, chain, tiny3, tiny2, tiny1, tiny0 = values
             
             # Check to see if frame changed at all
             if difference != 0:
@@ -179,6 +179,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
                 self.lineEditCurrentSeed6.setText(hexify(currentSeed))
                 self.lineEditFrame6.setText(str(frameCount))
                 self.lineEditSaveVariable.setText(hexify(save))
+                self.labelStepValue.setText(str(step))
+                self.labelChainValue.setText(str(chain))
                 self.lineEditTiny3.setText(hexify(tiny3))
                 self.lineEditTiny2.setText(hexify(tiny2))
                 self.lineEditTiny1.setText(hexify(tiny1))
@@ -362,6 +364,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         if index == 0 or index == 1:
             self.tabWidget.widget(0).setEnabled(True)
             self.tabWidget.widget(1).setEnabled(False)
+            self.labelStepCount.setVisible(index == 1)
+            self.labelStepValue.setVisible(index == 1)
         else:
             self.tabWidget.widget(0).setEnabled(False)
             self.tabWidget.widget(1).setEnabled(True)

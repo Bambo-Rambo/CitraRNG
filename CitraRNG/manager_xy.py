@@ -22,8 +22,11 @@ class ManagerXY(Manager6):
 
         self.saveVariable = 0x8C6A6A4
 
+        self.stepCounter = 0
+        self.chainLength = 0x8D1B2B8
+
     def getWildOffset(self):
-        pointer = readDWord(self.citra, 0x880313c) - 0xA1C
+        pointer = readDWord(self.citra, 0x880313c)
         if pointer < 0x8000000 or pointer > 0x8DF0000:
             return 0x8805614
         else:

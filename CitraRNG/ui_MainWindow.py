@@ -229,6 +229,21 @@ class Ui_MainWindow(object):
 
         self.gridLayout_11.addWidget(self.lineEditSaveVariable, 4, 2, 1, 2)
 
+        self.labelStepCount = QLabel(self.groupBoxMainRNG6)
+        self.labelStepCount.setObjectName(u"labelStepCount")
+        self.gridLayout_11.addWidget(self.labelStepCount, 2, 2, 2, 2)
+        self.labelStepCount.setVisible(False)
+        self.labelStepValue = QLabel(self.groupBoxMainRNG6)
+        self.labelStepValue.setObjectName(u"labelStepValue")
+        self.gridLayout_11.addWidget(self.labelStepValue, 2, 4, 2, 3)
+        self.labelStepValue.setVisible(False)
+
+        self.labelChainLength = QLabel(self.groupBoxMainRNG6)
+        self.labelChainLength.setObjectName(u"labelChainLength")
+        self.gridLayout_11.addWidget(self.labelChainLength, 2, 0, 2, 2)
+        self.labelChainValue = QLabel(self.groupBoxMainRNG6)
+        self.labelChainValue.setObjectName(u"labelChainValue")
+        self.gridLayout_11.addWidget(self.labelChainValue, 2, 1, 2, 3)
 
         self.gridLayout_13.addWidget(self.groupBoxMainRNG6, 0, 1, 2, 1)
 
@@ -644,6 +659,10 @@ class Ui_MainWindow(object):
         self.labelMainFrame6.setText(QCoreApplication.translate("MainWindow", u"Frame:", None))
         self.pushButtonMainUpdate6.setText(QCoreApplication.translate("MainWindow", u"Update", None))
         self.labelSaveVariable.setText(QCoreApplication.translate("MainWindow", u"Save Variable:", None))
+        self.labelStepCount.setText(QCoreApplication.translate("MainWindow", u"Step Counter:", None))
+        self.labelStepValue.setText(QCoreApplication.translate("MainWindow", u"0", None))
+        self.labelChainLength.setText(QCoreApplication.translate("MainWindow", u"Chain Length:", None))
+        self.labelChainValue.setText(QCoreApplication.translate("MainWindow", u"0", None))
         self.tabWidgetGen6.setTabText(self.tabWidgetGen6.indexOf(self.tabMain6), QCoreApplication.translate("MainWindow", u"Main", None))
         self.groupBoxEggRNG6.setTitle(QCoreApplication.translate("MainWindow", u"Egg RNG", None))
         self.labelEggReady6.setText(QCoreApplication.translate("MainWindow", u"Egg Ready:", None))

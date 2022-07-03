@@ -24,6 +24,9 @@ class Manager6:
 
         self.saveVariable = None
 
+        self.stepCounter = None
+        self.chainLength = None
+
         self.getOffsets()
 
     def getOffsets(self):
@@ -105,7 +108,10 @@ class Manager6:
 
         save = readDWord(self.citra, self.saveVariable)
 
-        return difference, self.initialSeed, self.currentSeed, self.frameCount, save, tiny3, tiny2, tiny1, tiny0
+        step = readDWord(self.citra, self.stepCounter)
+        chain = readDWord(self.citra, self.chainLength)
+
+        return difference, self.initialSeed, self.currentSeed, self.frameCount, save, step, chain, tiny3, tiny2, tiny1, tiny0
 
     def getCurrentSeed(self):
         index = readDWord(self.citra, self.mtIndex)
