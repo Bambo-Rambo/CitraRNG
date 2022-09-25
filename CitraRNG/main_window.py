@@ -1,6 +1,6 @@
 import threading
 import time
-from PySide6.QtCore import QObject, QSettings, Signal, Slot
+from PySide6.QtCore import QSettings, Signal, Slot
 from PySide6.QtWidgets import QMainWindow, QMessageBox
 from ui_MainWindow import Ui_MainWindow
 from manager_oras import ManagerORAS
@@ -8,7 +8,6 @@ from manager_sm import ManagerSM
 from manager_usum import ManagerUSUM
 from manager_xy import ManagerXY
 from util import hexify
-from util import uint
 
 class MainWindow(QMainWindow, Ui_MainWindow):
     update = Signal()
@@ -130,7 +129,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self.labelStatus.setText("Disconnected")
             self.comboBoxGameSelection.setEnabled(True)      
 
-    def toggleEnable(self, flag, index):
+    def toggleEnable(self, flag: bool, index: int):
         self.doubleSpinBoxDelay.setEnabled(flag)
 
         if index == 0 or index == 1:
@@ -272,9 +271,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     @Slot()
     def updateSOSRNG(self):
         if self.sosRNG:
-            #if self.manager.sosInitialSeed is None:
             stringSeed = self.lineEditSOSInitialSeed.text()
-            if stringSeed.__eq__(""):
+            if not stringSeed:
                 findSeed = True
                 ActualSosSeed = 0
             else:
