@@ -140,7 +140,7 @@ class Manager7:
             count += 1
 
             # Probably stuck in an infinite loop
-            if count > 20000:
+            if count > 100000:
                 return None            
             
         self.sosFrameCount += count
